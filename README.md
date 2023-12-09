@@ -50,5 +50,8 @@ SNSを通じて交流を増やしたいと思っている一方で、
 * インコの世話をする
 * フォロー & フォロワー
 
-###　画面遷移図（Figma）
+### 画面遷移図（Figma）
 https://www.figma.com/file/X7iTzf1MaKBY6D5Pt2occI/%E3%81%8A%E3%81%97%E3%82%83%E3%81%B9%E3%82%8AAI%E3%82%A4%E3%83%B3%E3%82%B3?type=design&node-id=0%3A1&mode=design&t=HrNt9My2WN4PoWMV-1
+
+### ER図
+https://gyazo.com/8f3574c82553238a05022225d8610c1a
