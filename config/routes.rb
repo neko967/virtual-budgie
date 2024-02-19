@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'staticpages#top'
+  devise_for :users
+  root to: "staticpages#top"
   get 'staticpages/top'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
