@@ -8,11 +8,19 @@
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-6 h-6 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
         </label>
       </div> 
-      <div class="flex-1 px-2 mx-2">おしゃべりインコ</div>
+      <div class="flex-1 px-2 mx-2"><%= link_to "おしゃべりインコ", root_path %></div>
       <div class="flex-none hidden lg:block">
         <ul class="menu menu-horizontal">
           <!-- Navbar menu content here -->
-          <li><a>Navbar Item 1</a></li>
+          <li>
+            <div class="dropdown">
+              <div tabindex="0" role="button">インコ ▼</div>
+              <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 top-10 right-1">
+                <li><%= link_to "みんなのインコを見る", budgies_path %></li>
+                <li><%= link_to "インコをお迎えする", new_budgy_path %></li>
+              </ul>
+            </div>
+          </li>
           <% if user_signed_in? %>
             <li><%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete } %></li>
           <% else %>
