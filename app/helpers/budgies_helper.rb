@@ -1,0 +1,2 @@
+module BudgiesHelper
+end
