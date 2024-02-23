@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'budgies/index'
+  get 'budgies/create'
+  get 'budgies/show'
   devise_for :users
   root to: "staticpages#top"
   get 'staticpages/top'
