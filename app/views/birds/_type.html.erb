@@ -1,0 +1,10 @@
+<div class="card card-compact w-96 bg-base-100 shadow-xl">
+  <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt=bird.bird_type /></figure>
+  <div class="card-body">
+    <h2 class="card-title"><%= bird.bird_type %></h2>
+    <p><%= bird.description %></p>
+    <div class="card-actions justify-end">
+      <button class="btn btn-primary"><%= link_to "この子にする！", new_bird_path %></button>
+    </div>
+  </div>
+</div>
