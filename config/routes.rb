@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'pets/index'
+  get 'pets/new'
+  get 'pets/show'
+  get 'pets/edit'
   devise_for :users
   root to: "staticpages#top"
   get 'staticpages/top'
