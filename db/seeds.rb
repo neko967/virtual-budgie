@@ -31,10 +31,10 @@ Bird.create!(
 )
 
 10.times do |index|
-  user_having_bird = UserHavingBird.create!(
+  pet = Pet.create!(
     user: User.offset(rand(User.count)).first,
     bird: Bird.first,
     name: "インコ#{index}"
   )
-  puts "#{user_having_bird.name} has created!"
+  puts "#{pet.name} has created!"
 end
