@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'pets/index'
-  get 'pets/new'
-  get 'pets/show'
-  get 'pets/edit'
   devise_for :users
   root to: "staticpages#top"
   get 'staticpages/top'
@@ -13,4 +9,5 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   resources :birds
+  resources :pets
 end
