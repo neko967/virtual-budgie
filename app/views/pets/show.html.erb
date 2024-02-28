@@ -4,8 +4,12 @@
     <h2 class="card-title"><%= @pet.name %></h2>
     <h2 class="card-title"><%= @pet.bird.bird_type %></h2>
     <p><%= @pet.bird.description %></p>
-    <div class="card-actions justify-end">
-      <button class="btn btn-primary"><%= link_to "この子にする！" %></button>
-    </div>
+    <% if user_signed_in? %>
+      <% if current_user.own?(@pet) %>
+        <div class="card-actions justify-end">
+          <button class="btn btn-primary"><%= link_to "様子を見る", edit_pet_path(@pet) %></button>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </div>
