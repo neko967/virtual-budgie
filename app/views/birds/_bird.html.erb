@@ -4,7 +4,7 @@
     <h2 class="card-title"><%= bird.bird_type %></h2>
     <p><%= bird.description %></p>
     <div class="card-actions justify-end">
-      <button class="btn btn-primary"><%= link_to "この子にする！", new_bird_path %></button>
+      <button class="btn btn-primary"><%= link_to "この子にする！", new_bird_path(bird.id) %></button>
     </div>
   </div>
 </div>

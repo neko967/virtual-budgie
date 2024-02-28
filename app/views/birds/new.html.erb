@@ -7,9 +7,16 @@
         <p>並セキセイインコ（ノーマルセキセイインコ）の特徴は後頭部から背中のさざ波模様。
         代表的な色はグリーンで、これが本来の野生種に最も近い種類です。</p>
         <div class="card-actions justify-end">
-          <button class="btn btn-primary"><%= link_to "この子にする！", types_birds_path %></button>
+          <button class="btn btn-primary"><%= link_to "この子にする！", birds_path %></button>
         </div>
       </div>
     </div>
+    <%= form_with  model: @bird, local: true do |f| %>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class:'form-control' %>
+      </div>
+      <%= f.submit class: 'btn btn-primary' %>
+    <% end %>
   </div>
 </div>
