@@ -1,2 +1,11 @@
-<h1>Pets#show</h1>
-<p>Find me in app/views/pets/show.html.erb</p>
+<div class="card card-compact w-96 bg-base-100 shadow-xl">
+  <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt=@pet.bird.bird_type /></figure>
+  <div class="card-body">
+    <h2 class="card-title"><%= @pet.name %></h2>
+    <h2 class="card-title"><%= @pet.bird.bird_type %></h2>
+    <p><%= @pet.bird.description %></p>
+    <div class="card-actions justify-end">
+      <button class="btn btn-primary"><%= link_to "この子にする！" %></button>
+    </div>
+  </div>
+</div>
