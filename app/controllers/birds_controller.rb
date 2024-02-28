@@ -4,9 +4,6 @@ class BirdsController < ApplicationController
   end
 
   def show
-  end
-
-  def new
-    @bird = Bird.new
+    @bird = Bird.find(params[:id])
   end
 end
