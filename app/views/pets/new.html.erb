@@ -1,2 +1,14 @@
-<h1>Pets#new</h1>
-<p>Find me in app/views/pets/new.html.erb</p>
+<div class="card card-compact w-96 bg-base-100 shadow-xl">
+  <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt=@bird.bird_type /></figure>
+  <div class="card-body">
+    <h2 class="card-title"><%= @bird.bird_type %></h2>
+    <p><%= @bird.description %></p>
+  </div>
+  <%= form_with model: @pet, url: [@bird, @pet], local: true do |f| %>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class:'form-control' %>
+    </div>
+    <%= f.submit 'お迎えする', class: 'btn btn-primary' %>
+  <% end %>
+</div>

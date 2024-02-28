@@ -5,4 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :pets, dependent: :destroy
+
+  def own?(object)
+    self.id == object.user_id
+  end
 end

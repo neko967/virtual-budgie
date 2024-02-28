@@ -15,6 +15,13 @@ User.create!(
   password_confirmation: 'password',
 )
 
+User.create!(
+  name: 'general',
+  email: 'general@example.com',
+  password: 'password',
+  password_confirmation: 'password',
+)
+
 Bird.create!(
   bird_type: 1,
   description: '並セキセイインコ（ノーマルセキセイインコ）の特徴は後頭部から背中のさざ波模様。代表的な色はグリーンで、これが本来の野生種に最も近い種類です。',
