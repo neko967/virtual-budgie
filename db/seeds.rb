@@ -29,3 +29,12 @@ Bird.create!(
   bird_type: 3,
   description: 'レインボーはオパーリンの一種で、ブルー系に頭部がイエローのものが一般的にレインボーと呼ばれます。',
 )
+
+10.times do |index|
+  user_having_bird = UserHavingBird.create!(
+    user: User.offset(rand(User.count)).first,
+    bird: Bird.first,
+    name: "インコ#{index}"
+  )
+  puts "#{user_having_bird.name} has created!"
+end
