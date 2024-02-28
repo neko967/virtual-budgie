@@ -50,6 +50,9 @@ test:
 #
 production:
   <<: *default
-  database: a_ibudgie_production
-  username: a_ibudgie
-  password: <%= ENV["A_IBUDGIE_DATABASE_PASSWORD"] %>
+  username: <%= Rails.application.credentials.planetscale&.fetch(:username) %>
+  password: <%= Rails.application.credentials.planetscale&.fetch(:password) %>
+  database: <%= Rails.application.credentials.planetscale&.fetch(:database) %>
+  host: <%= Rails.application.credentials.planetscale&.fetch(:host) %>
+  ssl_mode: verify_identity
+  sslca: "/etc/ssl/certs/ca-certificates.crt"
