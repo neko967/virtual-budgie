@@ -13,6 +13,7 @@ class PetsController < ApplicationController
   end
 
   def edit
+    @pet = current_user.pets.find(params[:id])
   end
 
   def create
