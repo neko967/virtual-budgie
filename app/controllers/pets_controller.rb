@@ -1,4 +1,7 @@
 class PetsController < ApplicationController
+  before_action :authenticate_user!, only: %i[new edit create]
+  before_action :set_pet, only: %i[edit destroy]
+
   def index
     @pets = Pet.all
   end
@@ -13,7 +16,6 @@ class PetsController < ApplicationController
   end
 
   def edit
-    @pet = current_user.pets.find(params[:id])
   end
 
   def create
@@ -25,7 +27,16 @@ class PetsController < ApplicationController
     end
   end
 
+  def destroy
+    @pet.destroy!
+    redirect_to pets_path
+  end
+
   private
+
+  def set_pet
+    @pet = current_user.pets.find(params[:id])
+  end
 
   def pet_params
     params.require(:pet).permit(:name).merge(bird_id: params[:bird_id])
