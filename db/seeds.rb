@@ -13,6 +13,7 @@ User.create!(
   email: 'admin@example.com',
   password: 'password',
   password_confirmation: 'password',
+  role: 1,
 )
 
 User.create!(
@@ -20,6 +21,7 @@ User.create!(
   email: 'general@example.com',
   password: 'password',
   password_confirmation: 'password',
+  role: 0,
 )
 
 Bird.create!(
