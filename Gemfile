@@ -57,7 +57,7 @@ gem 'pry-rails'
 
 gem 'rails_admin'
 
-gem 'pundit'
+gem 'cancancan'
 
 gem 'sassc-rails'
 
