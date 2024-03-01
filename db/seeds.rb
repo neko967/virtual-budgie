@@ -25,17 +25,17 @@ User.create!(
 )
 
 Bird.create!(
-  bird_type: 1,
+  bird_type: 0,
   description: '並セキセイインコ（ノーマルセキセイインコ）の特徴は後頭部から背中のさざ波模様。代表的な色はグリーンで、これが本来の野生種に最も近い種類です。',
 )
 
 Bird.create!(
-  bird_type: 2,
+  bird_type: 1,
   description: '宝石の「オパール」のようにきれいに輝いた毛並みをしていることから、オパーリンという名前がつけられたそうです。',
 )
 
 Bird.create!(
-  bird_type: 3,
+  bird_type: 2,
   description: 'レインボーはオパーリンの一種で、ブルー系に頭部がイエローのものが一般的にレインボーと呼ばれます。',
 )
 
