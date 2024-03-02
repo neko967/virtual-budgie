@@ -4,3 +4,8 @@ ja:
       role:
         general: '一般'
         admin: '管理者'
+    bird:
+      bird_type:
+        normal: 'ノーマル'
+        opaline: 'オパーリン'
+        rainbow: 'レインボー'

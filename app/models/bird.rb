@@ -1,4 +1,6 @@
 class Bird < ApplicationRecord
-  enum bird_type: { ノーマル: 1, オパーリン: 2, レインボー: 3 }
+  mount_uploader :bird_image, BirdImageUploader
   has_many :pets, dependent: :destroy
+
+  enum bird_type: { normal: 0, opaline: 1, rainbow: 2 }
 end
