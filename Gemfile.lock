@@ -359,6 +359,7 @@ DEPENDENCIES
   enum_help
   jbuilder
   jsbundling-rails
+  mini_magick
   mysql2 (~> 0.5)
   pry-rails
   puma (>= 5.0)
