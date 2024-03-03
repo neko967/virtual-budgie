@@ -1,0 +1,24 @@
+<div class="container pt-3">
+  <div class="row">
+    <div class="col-md-10 offset-md-1">
+      <h1 class="float-left mb-5"><%= "マイページ" %></h1>
+      <%= link_to "プロフィールの編集", edit_profile_path, class: 'btn btn-success float-right' %>
+      <table class="table">
+        <tr>
+          <th scope="row"><%= "名前" %></th>
+          <td><%= current_user.name %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= "Eメール" %></th>
+          <td><%= current_user.email %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <h1 class="mt-10 mb-5"><%= "飼っているインコ" %></h1>
+  <div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+    <% current_user.pets.each do |pet| %>
+      <%= render 'pet', { pet: pet } %>
+    <% end %>
+  </div>
+</div>

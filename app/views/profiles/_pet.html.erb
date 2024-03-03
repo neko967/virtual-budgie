@@ -2,7 +2,6 @@
   <figure><%= image_tag pet.bird.bird_image_url, class: 'card-img-top', size: '300x200' %></figure>
   <div class="card-body">
     <h2 class="card-title"><%= pet.name %></h2>
-    <h2 class="card-title"><%= "飼い主: #{pet.user.name}" %></h2>
     <div class="card-actions justify-end">
       <button class="btn btn-primary"><%= link_to "様子を見る", pet_path(pet) %></button>
     </div>

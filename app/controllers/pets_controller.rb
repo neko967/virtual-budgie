@@ -1,6 +1,6 @@
 class PetsController < ApplicationController
-  before_action :authenticate_user!, only: %i[new edit create]
-  before_action :set_pet, only: %i[edit destroy]
+  before_action :authenticate_user!, only: %i[new create]
+  before_action :set_pet, only: %i[destroy]
 
   def index
     @pets = Pet.all
@@ -13,9 +13,6 @@ class PetsController < ApplicationController
 
   def show
     @pet = Pet.find(params[:id])
-  end
-
-  def edit
   end
 
   def create
