@@ -13,5 +13,5 @@ Rails.application.routes.draw do
     resources :pets, only: %i[create destroy]
   end
   resources :pets, only: %i[new index show edit]
-  resource :profile, only: %i[show edit]
+  resource :profile, only: %i[show edit update]
 end
