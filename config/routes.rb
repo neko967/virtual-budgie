@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   resources :birds, shallow: true do
     resources :pets, only: %i[create destroy]
   end
-  resources :pets, only: %i[new index show edit]
+  resources :pets, only: %i[new index show]
   resource :profile, only: %i[show edit update]
 end

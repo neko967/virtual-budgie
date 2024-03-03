@@ -4,12 +4,15 @@
     <h2 class="card-title"><%= @pet.name %></h2>
     <h2 class="card-title"><%= "飼い主: #{@pet.user.name}" %></h2>
     <p><%= @pet.bird.description %></p>
-    <% if user_signed_in? %>
-      <% if current_user.own?(@pet) %>
-        <div class="card-actions justify-end">
-          <button class="btn btn-primary"><%= link_to "様子を見る", edit_pet_path(@pet) %></button>
-        </div>
+    <div class="card-actions justify-end">
+      <% if request.referer&.include?("/profile") %>
+        <button class="btn btn-primary"><%= link_to "戻る", profile_path %></button>
+      <% else %>
+        <button class="btn btn-primary"><%= link_to "戻る", pets_path %></button>
       <% end %>
-    <% end %>
+      <% if user_signed_in? && current_user.own?(@pet) %>
+        <button class="btn btn-primary"><%= link_to "お別れをする", pet_path(@pet), data: { turbo_method: :delete, turbo_confirm: "本当にお別れしますか？" }  %></button>
+      <% end %>
+    </div>
   </div>
 </div>
