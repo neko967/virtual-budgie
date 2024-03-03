@@ -12,6 +12,9 @@
       <div class="flex-none hidden lg:block">
         <ul class="menu menu-horizontal">
           <!-- Navbar menu content here -->
+          <% if user_signed_in? %>
+            <li><%= link_to "マイページ", profile_path %></li>
+          <% end %>
           <li>
             <div class="dropdown">
               <div tabindex="0" role="button">インコ ▼</div>
