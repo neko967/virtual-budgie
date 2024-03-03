@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'profiles/show'
+  get 'profiles/edit'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   root to: "staticpages#top"
