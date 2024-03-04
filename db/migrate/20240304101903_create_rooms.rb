@@ -3,6 +3,7 @@ class CreateRooms < ActiveRecord::Migration[7.1]
     create_table :rooms do |t|
       t.string :name, null: false
       t.integer :entry_limit, default: 6, null: false
+      t.string :room_image
 
       t.timestamps
     end

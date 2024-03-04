@@ -32,6 +32,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_04_101903) do
   create_table "rooms", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name", null: false
     t.integer "entry_limit", default: 6, null: false
+    t.string "room_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
