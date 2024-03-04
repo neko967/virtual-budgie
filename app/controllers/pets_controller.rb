@@ -29,6 +29,12 @@ class PetsController < ApplicationController
     redirect_to pets_path
   end
 
+  def speak
+    @pet = Pet.find(params[:id])
+    @word = @pet.words.order(frequency: :desc).first
+    render "pets/show"
+  end
+
   private
 
   def set_pet

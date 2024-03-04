@@ -45,6 +45,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_03_154020) do
 
   create_table "words", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "word", null: false
+    t.integer "frequency", default: 0, null: false
     t.bigint "pet_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

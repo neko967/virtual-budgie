@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   resources :birds, shallow: true do
     resources :pets, only: %i[create destroy]
   end
-  resources :pets, only: %i[new index show]
+
+  resources :pets, only: %i[new index show] do
+    get 'speak', on: :member
+  end
+
   resource :profile, only: %i[show edit update]
   resources :words, only: [:create]
 end

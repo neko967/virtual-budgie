@@ -17,7 +17,11 @@
         </div>
         <button class="btn btn-primary"><%= link_to "お別れをする", pet_path(@pet), data: { turbo_method: :delete, turbo_confirm: "本当にお別れしますか？" }  %></button>
       <% end %>
+      <button class="btn btn-primary"><%= link_to "聞いてみる（テキスト）", speak_pet_path(@pet) %></button>
     </div>
     <div id="transcript"></div>
+    <% unless @word.nil? %>
+      <%= @pet.name %> says: <%= @word.word %>
+    <% end %>
   </div>
 </div>
