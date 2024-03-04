@@ -48,7 +48,7 @@ Bird.create!(
   puts "#{pet.name} has created!"
 end
 
-10.times do |index|
+4.times do |index|
   room = Room.create!(
     name: "部屋#{index}",
     entry_limit: 6
