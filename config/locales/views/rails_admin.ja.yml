@@ -9,6 +9,7 @@ ja:
       contact: お問い合わせ
       bird: インコ
       pet: ペット
+      word: 言葉
     attributes:
       # 各モデルのカラム名を記載
       user:
