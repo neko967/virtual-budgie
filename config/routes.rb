@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'rooms/index'
+  get 'rooms/show'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   root to: "staticpages#top"
@@ -18,5 +20,6 @@ Rails.application.routes.draw do
   end
 
   resource :profile, only: %i[show edit update]
-  resources :words, only: [:create]
+  resources :words, only: %i[create]
+  resources :rooms, only: %i[index show]
 end
