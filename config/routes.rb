@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   end
   resources :pets, only: %i[new index show]
   resource :profile, only: %i[show edit update]
+  resources :words, only: [:create]
 end
