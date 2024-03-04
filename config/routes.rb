@@ -20,5 +20,6 @@ Rails.application.routes.draw do
   end
 
   resource :profile, only: %i[show edit update]
-  resources :words, only: [:create]
+  resources :words, only: %i[create]
+  resources :rooms, only: %i[index show]
 end
