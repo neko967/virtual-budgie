@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_03_154020) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_04_064219) do
   create_table "birds", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "bird_type", null: false
     t.text "description", null: false
@@ -45,10 +45,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_03_154020) do
 
   create_table "words", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "word", null: false
-    t.integer "frequency", default: 0, null: false
     t.bigint "pet_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "frequency", default: 0, null: false
     t.index ["pet_id"], name: "index_words_on_pet_id"
   end
 
