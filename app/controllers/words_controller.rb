@@ -1,5 +1,5 @@
 class WordsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: %i[create]
 
   def create
     @word = Word.new(pet_id: params[:word][:pet_id], word: params[:word][:content])
