@@ -10,6 +10,7 @@ ja:
       bird: インコ
       pet: ペット
       word: 言葉
+      room: 部屋
     attributes:
       # 各モデルのカラム名を記載
       user:
