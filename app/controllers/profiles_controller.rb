@@ -16,6 +16,10 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def favorites
+    @favorite_pets = current_user.favorite_pets.includes(:user).order(created: :desc)
+  end
+
   private
 
   def set_user
