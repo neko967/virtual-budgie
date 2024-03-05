@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :pets, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :favorite_pets, through: :favorites, source: :pet
+
   enum role: { general: 0, admin: 1 }
 
   def own?(object)
