@@ -5,6 +5,7 @@
     <p><%= @bird.description %></p>
   </div>
   <%= form_with model: @pet, url: [@bird, @pet], local: true do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
     <div class="form-group">
       <%= f.label :name %>
       <%= f.text_field :name, class:'form-control' %>
