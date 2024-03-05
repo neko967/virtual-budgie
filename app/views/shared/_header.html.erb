@@ -1,4 +1,4 @@
-<div class="drawer">
+<div class="drawer sticky top-0 z-50">
   <input id="my-drawer-3" type="checkbox" class="drawer-toggle" /> 
   <div class="drawer-content flex flex-col">
     <!-- Navbar -->
@@ -12,19 +12,11 @@
       <div class="flex-none hidden lg:block">
         <ul class="menu menu-horizontal">
           <!-- Navbar menu content here -->
+          <li><%= link_to "交流スペース", rooms_path %></li>
+          <li><%= link_to "インコをお迎えする", birds_path %></li>
           <% if user_signed_in? %>
             <li><%= link_to "マイページ", profile_path %></li>
           <% end %>
-          <li><%= link_to "交流スペース", rooms_path %></li>
-          <li>
-            <div class="dropdown">
-              <div tabindex="0" role="button">インコ ▼</div>
-              <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 top-10 right-1">
-                <li><%= link_to "みんなのインコを見る", pets_path %></li>
-                <li><%= link_to "インコをお迎えする", birds_path %></li>
-              </ul>
-            </div>
-          </li>
           <% if user_signed_in? %>
             <li><%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete } %></li>
           <% else %>
