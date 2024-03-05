@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :pets, only: %i[create destroy]
   end
 
-  resources :pets, only: %i[new index show] do
+  resources :pets, only: %i[new show] do
     get 'speak', on: :member
   end
 
