@@ -25,6 +25,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_05_025511) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["pet_id"], name: "index_favorites_on_pet_id"
+    t.index ["user_id", "pet_id"], name: "index_favorites_on_user_id_and_pet_id", unique: true
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
