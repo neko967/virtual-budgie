@@ -3,6 +3,8 @@ class ProfilesController < ApplicationController
   before_action :set_user, only: %i[edit update]
 
   def show
+    @my_pets = current_user.pets
+    @favorite_pets = current_user.favorite_pets.includes(:user).order(created_at: :desc)
   end
 
   def edit
@@ -14,10 +16,6 @@ class ProfilesController < ApplicationController
     else
       render :edit
     end
-  end
-
-  def favorites
-    @favorite_pets = current_user.favorite_pets.includes(:user).order(created: :desc)
   end
 
   private

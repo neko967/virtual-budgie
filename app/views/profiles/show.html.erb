@@ -17,8 +17,14 @@
   </div>
   <h1 class="mt-10 mb-5"><%= "飼っているインコ" %></h1>
   <div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-    <% current_user.pets.each do |pet| %>
-      <%= render 'pet', { pet: pet } %>
+    <% @my_pets.each do |pet| %>
+      <%= render 'my_pet', { pet: pet } %>
+    <% end %>
+  </div>
+  <h1 class="mt-10 mb-5"><%= "お気に入りのインコ" %></h1>
+  <div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+    <% @favorite_pets.each do |pet| %>
+      <%= render 'pets/pet', { pet: pet } %>
     <% end %>
   </div>
 </div>

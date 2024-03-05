@@ -13,4 +13,16 @@ class User < ApplicationRecord
   def own?(object)
     self.id == object.user_id
   end
+
+  def favorite(pet)
+    favorite_pets << pet
+  end
+
+  def unfavorite(pet)
+    favorite_pets.destroy(pet)
+  end
+
+  def favorite?(pet)
+    favorite_pets.include?(pet)
+  end
 end
