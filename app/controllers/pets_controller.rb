@@ -2,10 +2,6 @@ class PetsController < ApplicationController
   before_action :authenticate_user!, only: %i[new create destroy]
   before_action :set_pet, only: %i[destroy]
 
-  def index
-    @pets = Pet.all
-  end
-
   def new
     @bird = Bird.find(params[:bird_id])
     @pet = Pet.new
