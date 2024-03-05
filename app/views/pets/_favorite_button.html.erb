@@ -1,0 +1,5 @@
+<% if current_user.favorite?(pet) %>
+  <%= render 'pets/unfavorite', { pet: pet } %>
+<% else %>
+  <%= render 'pets/favorite', { pet: pet } %>
+<% end %>

@@ -3,6 +3,7 @@
   <div class="card-body">
     <h2 class="card-title"><%= @pet.name %></h2>
     <h2 class="card-title"><%= "飼い主: #{@pet.user.name}" %></h2>
+    <%= render 'favorite_button', { pet: @pet } %>
     <p><%= @pet.bird.description %></p>
     <div class="card-actions justify-end">
       <% if request.referer&.include?("/profile") %>
