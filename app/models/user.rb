@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :pets, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   enum role: { general: 0, admin: 1 }
 
   def own?(object)
