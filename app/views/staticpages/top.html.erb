@@ -9,8 +9,9 @@
     </div>
   </div>
 </div>
+<h1 class="mt-10 mb-5"><%= "人気が高いインコ" %></h1>
 <div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-  <% @pets.each do |pet| %>
+  <% @pet_fav_ranks.each do |pet| %>
     <%= render 'pets/pet', { pet: pet } %>
   <% end %>
 </div>
