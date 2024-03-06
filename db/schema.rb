@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_05_025511) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_05_133551) do
   create_table "birds", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "bird_type", null: false
     t.text "description", null: false
@@ -27,6 +27,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_05_025511) do
     t.index ["pet_id"], name: "index_favorites_on_pet_id"
     t.index ["user_id", "pet_id"], name: "index_favorites_on_user_id_and_pet_id", unique: true
     t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "pet_in_rooms", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "pet_id", null: false
+    t.bigint "room_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pet_id", "room_id"], name: "index_pet_in_rooms_on_pet_id_and_room_id", unique: true
+    t.index ["pet_id"], name: "index_pet_in_rooms_on_pet_id"
+    t.index ["room_id"], name: "index_pet_in_rooms_on_room_id"
   end
 
   create_table "pets", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -72,6 +82,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_05_025511) do
 
   add_foreign_key "favorites", "pets"
   add_foreign_key "favorites", "users"
+  add_foreign_key "pet_in_rooms", "pets"
+  add_foreign_key "pet_in_rooms", "rooms"
   add_foreign_key "pets", "birds"
   add_foreign_key "pets", "users"
   add_foreign_key "words", "pets"
