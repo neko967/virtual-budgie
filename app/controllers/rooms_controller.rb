@@ -5,6 +5,5 @@ class RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
-    @my_pets = current_user.pets
   end
 end
