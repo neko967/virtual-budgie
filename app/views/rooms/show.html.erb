@@ -3,8 +3,10 @@
   <div class="hero-overlay bg-opacity-60"></div>
   <div class=" text-center text-neutral-content">
     <div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-      <% @my_pets.each do |pet| %>
-        <%= render 'pet', { pet: pet } %>
+      <% if user_signed_in? %>
+        <% @my_pets.each do |pet| %>
+          <%= render 'pet', { pet: pet } %>
+        <% end %>
       <% end %>
     </div>
   </div>
