@@ -23,4 +23,5 @@ Rails.application.routes.draw do
   resources :words, only: %i[create]
   resources :rooms, only: %i[index show]
   resources :favorites, only: %i[create destroy]
+  resources :pet_in_rooms, only: %i[create destroy]
 end
