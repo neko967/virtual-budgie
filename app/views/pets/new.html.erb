@@ -7,8 +7,8 @@
   <%= form_with model: @pet, url: [@bird, @pet], local: true do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
     <div class="form-group">
-      <%= f.label :name %>
-      <%= f.text_field :name, class:'form-control' %>
+      <%= f.label :name, '以下にペットの名前を入力してください' %>
+      <%= f.text_field :name, class:'form-control bg-red-200' %>
     </div>
     <%= f.submit 'お迎えする', class: 'btn btn-primary' %>
   <% end %>

@@ -1,0 +1,7 @@
+<% if user_signed_in? %>
+  <% if pet.enter?(room) %>
+    <%= render 'exit', { pet: pet, room: room } %>
+  <% else %>
+    <%= render 'enter', { pet: pet, room: room } %>
+  <% end %>
+<% end %>

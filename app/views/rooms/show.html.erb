@@ -5,7 +5,7 @@
     <div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
       <% if user_signed_in? %>
         <% current_user.pets.each do |pet| %>
-          <%= render 'pet', { pet: pet } %>
+          <%= render 'pet', { pet: pet, room: @room} %>
         <% end %>
       <% end %>
     </div>
