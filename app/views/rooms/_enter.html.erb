@@ -1,7 +1,8 @@
 <div class="card-actions justify-end">
   <button class="btn btn-primary">
     <%= link_to "放鳥する",
-                pet_in_rooms_path(pet_id: pet.id, room_id: room.id), 
+                pet_in_rooms_path(pet_id: pet.id, room_id: room.id),
+                id: "js-enter-button-for-pet-#{pet.id}",
                 class: "float-right",
                 data: { turbo_method: :post } ,
                 remote: true %>
