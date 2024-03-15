@@ -1,7 +1,15 @@
 <% if user_signed_in? %>
   <% if pet.enter?(room) %>
-    <%= render 'exit', { pet: pet, room: room } %>
+    <div class="card-actions justify-end">
+      <button class="btn btn-primary">
+        <%= render 'exit', { pet: pet, room: room } %>
+      </button>
+    </div>
   <% else %>
-    <%= render 'enter', { pet: pet, room: room } %>
+    <div class="card-actions justify-end">
+      <button class="btn btn-primary">
+        <%= render 'enter', { pet: pet, room: room } %>
+      </button>
+    </div>
   <% end %>
 <% end %>
