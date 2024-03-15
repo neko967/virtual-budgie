@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "unfavorite-button-for-pet-#{@pet.id}" do %>
+  <%= render 'pets/favorite_button', pet: @pet %>
+<% end %>
