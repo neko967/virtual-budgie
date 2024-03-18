@@ -12,9 +12,20 @@
 
   <body class="flex flex-col min-h-screen">
     <%= render "shared/header" %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <% if flash[:notice] %>
+      <div class="p-4 mb-4 text-md text-blue-700 text-center font-bold">
+        <%= notice %>
+      </div>
+    <% end %>
+    <% if flash[:alert] %>
+      <div class="p-4 mb-4 text-md text-red-700 text-center font-bold">
+        <%= alert %>
+      </div>
+    <% end %>
+    <main class="container mx-auto sm:w-10/12 lg:w-9/12 mb-8 z-0">
+      <%= yield %>
+    </main>
+
     <div class="mt-auto">
       <%= render "shared/footer" %>
     </div>
