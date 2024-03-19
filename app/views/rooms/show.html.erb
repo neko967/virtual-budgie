@@ -1,13 +1,21 @@
-<div class="hero min-h-screen">
-  <%= image_tag @room.room_image_url %>
-  <div class="hero-overlay bg-opacity-60"></div>
-  <div class=" text-center text-neutral-content">
-    <div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+<div class="container mx-auto sm:w-11/12 lg:w-11/12">
+  <div class="grid grid-cols-12 gap-3">
+
+    <div class="col-span-3">
       <% if user_signed_in? %>
         <% current_user.pets.each do |pet| %>
           <%= render 'pet', { pet: pet, room: @room} %>
         <% end %>
       <% end %>
     </div>
+  
+    <div class="col-span-9">
+      <div class="hero bg-white">
+        <%= image_tag @room.room_image_url %>
+        <div class="hero-overlay bg-opacity-60"></div>
+      </div>
+    </div>
+
   </div>
 </div>
+  
