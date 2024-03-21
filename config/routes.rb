@@ -19,9 +19,12 @@ Rails.application.routes.draw do
     get 'speak', on: :member
   end
 
+  resources :rooms, only: %i[index show] do
+    resources :pet_chat_in_rooms, only: [:create]
+  end
+
   resource :profile, only: %i[show edit update]
   resources :words, only: %i[create]
-  resources :rooms, only: %i[index show]
   resources :favorites, only: %i[create destroy]
   resources :pet_in_rooms, only: %i[create destroy]
 end
