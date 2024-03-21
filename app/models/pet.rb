@@ -4,6 +4,7 @@ class Pet < ApplicationRecord
   has_many :words, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :pet_in_rooms, dependent: :destroy
+  has_many :pet_chat_in_rooms, dependent: :destroy
   
   validates :name, length: { maximum: 255 }, presence: true
 
