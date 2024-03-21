@@ -14,7 +14,7 @@ document.addEventListener("turbo:load", function() {
 
   recognition.onstart = function() {
     recognizing = true;
-    startStopBtn.textContent = '話すのをやめる';
+    startStopBtn.textContent = '言葉を覚えさせる';
     transcriptDiv.innerHTML = '';
     finalTranscript = '';
   };

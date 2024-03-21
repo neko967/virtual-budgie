@@ -1,3 +1,7 @@
 <%= turbo_stream.replace "enter-button-for-pet-#{@pet.id}" do %>
   <%= render 'rooms/exit', { pet: @pet, room: @room } %>
 <% end %>
+
+<%= turbo_stream.append "pets_in_room" do %>
+  <%= render 'rooms/pet_in_room', { pet: @pet, room: @room} %>
+<% end %>

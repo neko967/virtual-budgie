@@ -1,5 +1,10 @@
-<%= link_to "回収する",
-            pet_in_room_path(room.pet_in_rooms.find_by(pet_id: pet.id), room_id: room.id),
+<%= link_to pet_in_room_path(room.pet_in_rooms.find_by(pet_id: pet.id), room_id: room.id),
             id: "exit-button-for-pet-#{pet.id}",
             class: "float-right",
-            data: { turbo_method: :delete } %>
+            data: { turbo_method: :delete } do %>
+  <div class="card-actions justify-end">
+    <button class="btn btn-primary">
+      回収する
+    </button>
+  </div>
+<% end %>
