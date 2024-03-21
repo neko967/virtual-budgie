@@ -1,5 +1,10 @@
-<%= link_to "放鳥する",
-            pet_in_rooms_path(pet_id: pet.id, room_id: room.id),
+<%= link_to pet_in_rooms_path(pet_id: pet.id, room_id: room.id),
             id: "enter-button-for-pet-#{pet.id}",
             class: "float-right",
-            data: { turbo_method: :post } %>
+            data: { turbo_method: :post } do %>
+  <div class="card-actions justify-end">
+    <button class="btn btn-primary">
+      放鳥する
+    </button>
+  </div>
+<% end %>
