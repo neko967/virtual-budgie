@@ -2,16 +2,19 @@ class WordsController < ApplicationController
   before_action :authenticate_user!, only: %i[create]
 
   def create
-    @word = Word.new(pet_id: params[:word][:pet_id], word: params[:word][:content])
-    learned_words = Pet.find(params[:word][:pet_id]).words
+    text = params[:word][:content]
+    api_key = ENV.fetch('GOO_LAB_API_KEY')
+    analysis_result = MorphologicalAnalysisService.analyze(text, api_key)
+    words_array = analysis_result['word_list'].flatten
 
-    if learned_words.exists?(word: params[:word][:content])
-      learned_words.find_by(word: params[:word][:content]).increase_frequency
-    else
-      if @word.save
-        render json: { status: 'success', message: 'Word saved successfully' }
+    words_array.each do |new_word|
+      @word = Word.new(pet_id: params[:word][:pet_id], word: new_word)
+      learned_words = Pet.find(params[:word][:pet_id]).words
+
+      if learned_words.exists?(word: new_word)
+        learned_words.find_by(word: new_word).increase_frequency
       else
-        render json: { status: 'error', message: 'Failed to save the word' }
+        @word.save
       end
     end
   end
