@@ -26,8 +26,23 @@ document.addEventListener("turbo:load", function() {
   recognition.onend = function() {
     recognizing = false;
     startStopBtn.textContent = '話しかける';
+
+    // ここからAjaxでRailsのcreateアクションに送信
+    if (finalTranscript !== '') {
+      fetch('/words', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRF-Token': document.querySelector("[name='csrf-token']").content
+        },
+        body: JSON.stringify({ word: { content: finalTranscript, pet_id: petId } })
+      })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch((error) => console.error('Error:', error));
+    }
   };
-  
+
   recognition.onresult = function(event) {
     let interimTranscript = '';
     for (let i = event.resultIndex; i < event.results.length; ++i) {
@@ -47,25 +62,5 @@ document.addEventListener("turbo:load", function() {
     }
     recognition.start();
   });
-
-  recognition.onend = function() {
-    recognizing = false;
-    startStopBtn.textContent = '話しかける';
-
-    // ここからAjaxでRailsのcreateアクションに送信
-    if (finalTranscript !== '') {
-      fetch('/words', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'X-CSRF-Token': document.querySelector("[name='csrf-token']").content
-        },
-        body: JSON.stringify({ word: { content: finalTranscript, pet_id: petId } })
-      })
-      .then(response => response.json())
-      .then(data => console.log(data))
-      .catch((error) => console.error('Error:', error));
-    }
-  };
 });
 
