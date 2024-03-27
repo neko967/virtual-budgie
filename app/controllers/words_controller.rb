@@ -2,7 +2,7 @@ class WordsController < ApplicationController
   before_action :authenticate_user!, only: %i[create]
 
   def create
-    text = params[:word][:content]
+    text = params[:word][:word]
     api_key = ENV.fetch('GOO_LAB_API_KEY')
     analysis_result = MorphologicalAnalysisService.analyze(text, api_key)
     words_array = analysis_result['word_list'].flatten
