@@ -7,10 +7,10 @@
             <h2 class="card-title"><%= pet.name %></h2>
             <h2 class="card-title"><%= "飼い主: #{pet.user.name}" %></h2>
             <%= render 'pets/favorite_button', { pet: pet } %>
-            <% if user_signed_in? && current_user.own?(pet) %>
-              <div><button class="btn btn-primary"><%= link_to "お別れをする", pet_path(pet), data: { turbo_method: :delete, turbo_confirm: "本当にお別れしますか？" }  %></button></div>
-            <% end %>
             <button data-action="click->bird-speak#birdSpeak" data-bird-speak-target="birdSpeakBtn" class="btn btn-primary">聞いてみる（テキスト）</button>
+            <% if user_signed_in? && current_user.own?(pet) %>
+              <div><button class="btn btn-secondary"><%= link_to "お別れをする", pet_path(pet), data: { turbo_method: :delete, turbo_confirm: "本当にお別れしますか？" }  %></button></div>
+            <% end %>
           </div>
           <div class="col-span-9">
             <%= image_tag pet.bird.bird_image_url %>
@@ -22,12 +22,14 @@
           </div>
           <div class="col-span-9">
             <div class="grid grid-cols-12 gap-3">
-              <div class="col-span-3">
+              <div class="col-span-9">
                 <div data-talk-to-bird-target="transcript"></div>
                 <div data-bird-speak-target="birdsaid"></div>
               </div>
-              <div class="col-span-9">
-                <button data-action="click->talk-to-bird#reset" data-talk-to-bird-target="resetBtn" class="btn btn-primary float-right">言葉をリセットする</button>
+              <div class="col-span-3">
+                <% if user_signed_in? && current_user.own?(pet) %>
+                  <button data-action="click->talk-to-bird#reset" data-talk-to-bird-target="resetBtn" class="btn btn-primary float-right">話しかけるのを中断する</button>
+                <% end %>
               </div>
             </div>
           </div>
