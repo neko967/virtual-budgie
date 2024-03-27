@@ -15,7 +15,7 @@
           <li><%= link_to "交流スペース", rooms_path %></li>
           <li><%= link_to "インコをお迎えする", birds_path %></li>
           <% if user_signed_in? %>
-            <li><%= link_to "マイページ", profile_path %></li>
+            <li><%= link_to "マイページ", mypage_path, data: { turbo: false } %></li>
           <% end %>
           <% if user_signed_in? %>
             <li><%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete } %></li>
@@ -33,7 +33,7 @@
       <li><%= link_to "交流スペース", rooms_path %></li>
       <li><%= link_to "インコをお迎えする", birds_path %></li>
       <% if user_signed_in? %>
-        <li><%= link_to "マイページ", profile_path %></li>
+        <li><%= link_to "マイページ", mypage_path %></li>
       <% end %>
       <% if user_signed_in? %>
         <li><%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete } %></li>
