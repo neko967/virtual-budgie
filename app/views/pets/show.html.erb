@@ -1,28 +1,37 @@
-<div class="card card-compact w-96 bg-base-100 shadow-xl">
-  <figure><%= image_tag @pet.bird.bird_image_url, class: 'card-img-top', size: '300x200' %></figure>
-  <div class="card-body">
-    <h2 class="card-title"><%= @pet.name %></h2>
-    <h2 class="card-title"><%= "飼い主: #{@pet.user.name}" %></h2>
-    <%= render 'favorite_button', { pet: @pet } %>
-    <p><%= @pet.bird.description %></p>
-    <div class="card-actions justify-end">
-      <% if request.referer&.include?("/profile") %>
-        <button class="btn btn-primary"><%= link_to "戻る", profile_path %></button>
-      <% else %>
-        <button class="btn btn-primary"><%= link_to "戻る", root_path %></button>
-      <% end %>
-      <% if user_signed_in? && current_user.own?(@pet) %>
-        <%= javascript_include_tag "talk_to_bird" %>
-        <div id="speech-recognition" data-pet-id="<%= @pet.id %>">
-          <button class="btn btn-primary" id="start-stop-btn">話しかける</button>
-        </div>
-        <button class="btn btn-primary"><%= link_to "お別れをする", pet_path(@pet), data: { turbo_method: :delete, turbo_confirm: "本当にお別れしますか？" }  %></button>
-      <% end %>
-      <button class="btn btn-primary"><%= link_to "聞いてみる（テキスト）", speak_pet_path(@pet) %></button>
+<div data-controller="talk-to-bird" data-talk-to-bird-pet-id="<%= @pet.id %>">
+  <div class="container mx-auto md:w-12/12 lg:w-10/12">
+    <div class="grid grid-cols-12 gap-3">
+      <div class="col-span-3">
+        <h2 class="card-title"><%= @pet.name %></h2>
+        <h2 class="card-title"><%= "飼い主: #{@pet.user.name}" %></h2>
+        <%= render 'favorite_button', { pet: @pet } %>
+  
+        <% if request.referer&.include?("/profile") %>
+          <div><button class="btn btn-primary"><%= link_to "戻る", profile_path %></button></div>
+        <% else %>
+          <div><button class="btn btn-primary"><%= link_to "戻る", root_path %></button></div>
+        <% end %>
+        <% if user_signed_in? && current_user.own?(@pet) %>
+          <div><button class="btn btn-primary"><%= link_to "お別れをする", pet_path(@pet), data: { turbo_method: :delete, turbo_confirm: "本当にお別れしますか？" }  %></button></div>
+        <% end %>
+        <div><button class="btn btn-primary"><%= link_to "聞いてみる（テキスト）", speak_pet_path(@pet) %></button></div>
+  
+      </div>
+      <div class="col-span-9">
+        <%= image_tag @pet.bird.bird_image_url %>
+      </div>
+      <div class="col-span-3">
+        <% if user_signed_in? && current_user.own?(@pet) %>
+          <button data-action="click->talk-to-bird#startStop" data-talk-to-bird-target="startStopBtn" class="btn btn-primary">話しかける</button>
+        <% end %>
+      </div>
+      <div class="col-span-9">
+        <div data-talk-to-bird-target="transcript"></div>
+        <% unless @word.nil? %>
+          <%= @pet.name %> says: <%= @word.word %>
+        <% end %>
+        <button data-action="click->talk-to-bird#reset" data-talk-to-bird-target="resetBtn" class="btn btn-primary float-right">言葉をリセットする</button>
+      </div>
     </div>
-    <div id="transcript"></div>
-    <% unless @word.nil? %>
-      <%= @pet.name %> says: <%= @word.word %>
-    <% end %>
   </div>
 </div>
