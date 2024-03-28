@@ -89,11 +89,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_030001) do
 
   create_table "vocabs", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "word", null: false
-    t.integer "frequency", default: 0, null: false
     t.string "pos", null: false
+    t.integer "frequency", default: 0, null: false
     t.bigint "pet_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["pet_id", "word", "pos"], name: "index_vocabs_on_pet_id_and_word_and_pos", unique: true
     t.index ["pet_id"], name: "index_vocabs_on_pet_id"
   end
 
