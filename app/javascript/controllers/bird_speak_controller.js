@@ -10,8 +10,8 @@ export default class extends Controller {
     fetch(`/pets/${petId}/speak`)
       .then(response => response.json())
       .then(data => {
-        if (data.words.length > 0) {
-          this.displayRandomPhrase(data.words);
+        if (data.vocabs.length > 0) {
+          this.displayRandomPhrase(data.vocabs);
         } else {
           this.birdsaidTarget.textContent = "言葉を覚えていません";
         }

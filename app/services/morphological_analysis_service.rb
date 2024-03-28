@@ -8,7 +8,7 @@ class MorphologicalAnalysisService
     body = {
       app_id: app_id,
       sentence: text,
-      info_filter: 'pos|read'
+      info_filter: 'pos|read',
     }.to_json
 
     headers = {

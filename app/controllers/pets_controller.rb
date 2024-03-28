@@ -28,8 +28,8 @@ class PetsController < ApplicationController
 
   def speak
     pet = Pet.find(params[:id])
-    words = pet.words.order(frequency: :desc).limit(10)
-    render json: { words: words.map(&:word) }
+    vocabs = pet.vocabs.order(frequency: :desc).limit(10)
+    render json: { vocabs: vocabs.map(&:word) }
   end
 
   private

@@ -34,7 +34,7 @@ export default class extends Controller {
   end() {
     this.recognizing = false;
     this.startStopBtnTarget.textContent = '話しかける';
-    this.checkAndPostWord();
+    this.checkAndPostVocab();
   }
 
   result(event) {
@@ -65,18 +65,17 @@ export default class extends Controller {
     this.finalTranscript = '';
   }
 
-  checkAndPostWord() {
+  checkAndPostVocab() {
     if (this.finalTranscript !== '') {
-      // ここでSpeechRecognitionの結果をサーバーに送信
       const petId = this.data.get("pet-id");
 
-      fetch('/words', {
+      fetch('/vocabs', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'X-CSRF-Token': document.querySelector("[name='csrf-token']").content
         },
-        body: JSON.stringify({ word: { word: this.finalTranscript, pet_id: petId } })
+        body: JSON.stringify({ vocab: { text: this.finalTranscript, pet_id: petId } })
       })
       .then(response => response.json())
       .then(data => console.log(data))
