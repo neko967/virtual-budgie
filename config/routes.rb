@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   get 'show_my_pet' => "mypages#show_my_pet"
   get 'show_fav_pet' => "mypages#show_fav_pet"
   resource :profile, only: %i[edit update]
-  resources :words, only: %i[create]
+  resources :vocabs, only: %i[create]
   resources :favorites, only: %i[create destroy]
   resources :pet_in_rooms, only: %i[create destroy]
 end

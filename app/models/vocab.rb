@@ -1,4 +1,4 @@
-class Word < ApplicationRecord
+class Vocab < ApplicationRecord
   belongs_to :pet
 
   def increase_frequency
