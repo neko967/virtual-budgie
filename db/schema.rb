@@ -53,6 +53,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_030001) do
     t.string "name", null: false
     t.integer "level", default: 1, null: false
     t.integer "experience_point", default: 0, null: false
+    t.integer "hungry_score", default: 100, null: false
+    t.boolean "alive", default: true, null: false
     t.bigint "user_id", null: false
     t.bigint "bird_id", null: false
     t.datetime "created_at", null: false
