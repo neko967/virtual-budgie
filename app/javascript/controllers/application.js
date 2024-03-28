@@ -1,4 +1,6 @@
 import { Application } from "@hotwired/stimulus"
+import TalkToBirdController from "./talk_to_bird_controller"
+import BirdSpeakController from "./bird_speak_controller"
 
 const application = Application.start()
 
@@ -7,3 +9,6 @@ application.debug = false
 window.Stimulus   = application
 
 export { application }
+
+Stimulus.register("talk-to-bird", TalkToBirdController)
+Stimulus.register("bird-speak", BirdSpeakController)
