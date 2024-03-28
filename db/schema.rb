@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_28_033606) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_21_030001) do
   create_table "birds", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "bird_type", null: false
     t.text "description", null: false
@@ -50,9 +50,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_28_033606) do
   end
 
   create_table "pets", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "level", default: 1, null: false
+    t.integer "experience_point", default: 0, null: false
     t.bigint "user_id", null: false
     t.bigint "bird_id", null: false
-    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["bird_id"], name: "index_pets_on_bird_id"
@@ -71,24 +73,26 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_28_033606) do
     t.string "name", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.integer "role", default: 0, null: false
+    t.integer "level", default: 1, null: false
+    t.integer "experience_point", default: 0, null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "role", default: 0, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "words", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "vocabs", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "word", null: false
+    t.integer "frequency", default: 0, null: false
+    t.string "pos", null: false
     t.bigint "pet_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "frequency", default: 0, null: false
-    t.string "pos", null: false
-    t.index ["pet_id"], name: "index_words_on_pet_id"
+    t.index ["pet_id"], name: "index_vocabs_on_pet_id"
   end
 
   add_foreign_key "favorites", "pets"
@@ -99,5 +103,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_28_033606) do
   add_foreign_key "pet_in_rooms", "rooms"
   add_foreign_key "pets", "birds"
   add_foreign_key "pets", "users"
-  add_foreign_key "words", "pets"
+  add_foreign_key "vocabs", "pets"
 end
