@@ -27,7 +27,7 @@
         <div class="col-span-9">
           <div data-talk-to-bird-target="transcript"></div>
           <div data-bird-speak-target="birdsaid"></div>
-          <% if user_signed_in? && current_user.own?(pet) %>
+          <% if user_signed_in? && current_user.own?(@pet) %>
             <button data-action="click->talk-to-bird#reset" data-talk-to-bird-target="resetBtn" class="btn btn-primary float-right">話しかけるのを中断する</button>
           <% end %>
         </div>
