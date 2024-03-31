@@ -14,7 +14,7 @@ class PetsController < ApplicationController
   def create
     @pet = current_user.pets.build(pet_params)
     if @pet.save
-      redirect_to profile_path
+      redirect_to mypage_path
     else
       @bird = Bird.find(params[:bird_id])
       render :new
@@ -23,7 +23,7 @@ class PetsController < ApplicationController
 
   def destroy
     @pet.destroy!
-    redirect_to profile_path
+    redirect_to mypage_path
   end
 
   def speak
