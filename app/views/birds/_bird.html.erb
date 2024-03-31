@@ -5,7 +5,7 @@
       <h2 class="card-title"><%= bird.bird_type %></h2>
       <p><%= bird.description %></p>
       <div class="card-actions justify-end">
-        <%= link_to "詳しくみる", bird_path(bird.id), class: "btn btn-primary" %>
+      <button data-action="click->modal#open" data-bird-id="<%= bird.id %>" class="btn btn-primary text-gray-200">open modal</button>
       </div>
     </div>
   </div>

@@ -1,9 +1,27 @@
-<div class="bg-gray-900 h-screen">
-  <div class="container mx-auto md:w-12/12 lg:w-10/12">
-    <div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-      <% @birds.each do |bird| %>
-        <%= render 'bird', { bird: bird } %>
-      <% end %>
+<div data-controller="modal">
+  <div class="bg-gray-900 h-screen">
+    <div class="container mx-auto md:w-12/12 lg:w-10/12">
+      <div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+        <% @birds.each do |bird| %>
+          <%= render 'bird', { bird: bird } %>
+        <% end %>
+      </div>
     </div>
   </div>
+  
+  <dialog id="my_modal_2" class="modal">
+    <div class="modal-box bg-gray-700">
+      <h3 class="font-bold text-lg text-white">どんな名前にする？（名前は変更できません）</h3>
+      <%= form_with url: pets_path, local: true do |f| %>
+        <div class="form-group">
+          <%= f.text_field :name, class:'form-control bg-white text-black' %>
+          <%= f.hidden_field :bird_id, data: { modal_target: "birdIdField" } %>
+        </div>
+        <%= f.submit 'お迎えする', class: 'btn btn-primary text-gray-200 float-right' %>
+      <% end %>
+    </div>
+    <form method="dialog" class="modal-backdrop">
+      <button>close</button>
+    </form>
+  </dialog>
 </div>
