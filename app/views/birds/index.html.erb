@@ -1,7 +1,9 @@
-<div class="container">
-  <div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-    <% @birds.each do |bird| %>
-      <%= render 'bird', { bird: bird } %>
-    <% end %>
+<div class="bg-gray-900 h-screen">
+  <div class="container mx-auto md:w-12/12 lg:w-10/12">
+    <div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+      <% @birds.each do |bird| %>
+        <%= render 'bird', { bird: bird } %>
+      <% end %>
+    </div>
   </div>
 </div>
