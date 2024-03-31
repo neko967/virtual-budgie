@@ -7,14 +7,10 @@
             <h2 class="card-title text-gray-300"><%= @pet.name %></h2>
             <h2 class="card-title text-gray-300"><%= "飼い主: #{@pet.user.name}" %></h2>
             <%= render 'favorite_button', { pet: @pet } %>
-            <% if request.referer&.include?("/profile") %>
-              <div><button class="btn btn-primary"><%= link_to "戻る", profile_path %></button></div>
-            <% else %>
-              <div><button class="btn btn-primary"><%= link_to "戻る", root_path %></button></div>
-            <% end %>
+            <div><%= link_to "戻る", root_path, class: "btn btn-primary" %></div>
             <div><button data-action="click->bird-speak#birdSpeak" data-bird-speak-target="birdSpeakBtn" class="btn btn-primary">聞いてみる（テキスト）</button></div>
             <% if user_signed_in? && current_user.own?(@pet) %>
-              <div><button class="btn btn-secondary"><%= link_to "お別れをする", pet_path(@pet), data: { turbo_method: :delete, turbo_confirm: "本当にお別れしますか？" }  %></button></div>
+              <div><%= link_to "お別れをする", pet_path(@pet), data: { turbo_method: :delete, turbo_confirm: "本当にお別れしますか？" }, class: "btn btn-secondary" %></div>
             <% end %>
           </div>
           <div class="col-span-9">
