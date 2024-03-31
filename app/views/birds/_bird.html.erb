@@ -5,7 +5,11 @@
       <h2 class="card-title text-gray-200"><%= bird.bird_type %></h2>
       <p class="text-gray-300"><%= bird.description %></p>
       <div class="card-actions justify-end">
-      <button data-action="click->modal#open" data-bird-id="<%= bird.id %>" class="btn btn-primary text-gray-200">この子にする！</button>
+        <% if user_signed_in? %>
+          <button data-action="click->modal#open" data-bird-id="<%= bird.id %>" class="btn btn-primary text-gray-200">この子にする！</button>
+        <% else %>
+          <button class="btn btn-primary text-gray-200" onclick="my_modal_3.showModal()">この子にする！</button>
+        <% end %>
       </div>
     </div>
   </div>
