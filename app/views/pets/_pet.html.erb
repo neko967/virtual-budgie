@@ -5,7 +5,7 @@
     <h2 class="card-title text-gray-300"><%= "飼い主: #{pet.user.name}" %></h2>
     <div class="card-actions justify-end">
       <%= render 'pets/favorite_button', { pet: pet } %>
-      <button class="btn btn-primary"><%= link_to "様子を見る", pet_path(pet) %></button>
+      <%= link_to "様子を見る", pet_path(pet), class: "btn btn-primary" %>
     </div>
   </div>
 </div>
