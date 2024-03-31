@@ -4,7 +4,7 @@
     <h2 class="card-title"><%= @bird.bird_type %></h2>
     <p><%= @bird.description %></p>
     <div class="card-actions justify-end">
-      <button class="btn btn-primary"><%= link_to "この子にする！", new_pet_path(:bird_id => @bird.id) %></button>
+      <%= link_to "この子にする！", new_pet_path(:bird_id => @bird.id), class: "btn btn-primary" %>
     </div>
   </div>
 </div>
