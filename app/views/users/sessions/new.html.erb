@@ -24,4 +24,11 @@
 
 <div class="text-center">
   <%= render "users/shared/links" %>
+  </br>
+  <h4>or</h4>
+  </br>
+  <%= link_to guest_login_path,
+              data: { turbo_method: :post } do %>
+    <bunton class="btn btn-primary">お試しログイン</button>
+  <% end %>
 </div>
