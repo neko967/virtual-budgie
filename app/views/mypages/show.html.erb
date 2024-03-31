@@ -1,12 +1,12 @@
-<div class="bg-transparent h-screen">
+<div class="bg-gray-800 h-screen">
   <div class="container mx-auto sm:w-11/12 lg:w-11/12">
     <div class="grid grid-cols-12 gap-3">
       <div class="col-span-3">
-        <h1 class="mt-10 mb-5"><%= "飼っているインコ" %></h1>
+        <h1 class="mt-10 mb-5 text-gray-300"><%= "飼っているインコ" %></h1>
         <% @my_pets.each do |pet| %>
           <%= render 'my_pet_list', { pet: pet } %>
         <% end %>
-        <h1 class="mt-10 mb-5"><%= "お気に入りのインコ" %></h1>
+        <h1 class="mt-10 mb-5 text-gray-300"><%= "お気に入りのインコ" %></h1>
         <% @favorite_pets.each do |pet| %>
           <%= render 'fav_pet_list', { pet: pet } %>
         <% end %>
@@ -18,11 +18,11 @@
     <div class="container pt-3">
       <div class="row">
         <div class="col-md-10 offset-md-1">
-          <h1 class="float-left mb-5"><%= "プロフィール" %></h1>
-          <%= link_to "プロフィールの編集", edit_profile_path, class: 'btn btn-success float-right' %>
-          <table class="table">
+          <h1 class="float-left mb-5 text-gray-300"><%= "プロフィール" %></h1>
+          <%= link_to "プロフィールの編集", edit_profile_path, class: 'btn btn-success float-right text-gray-900' %>
+          <table class="table text-gray-300">
             <tr>
-              <th scope="row"><%= "名前" %></th>
+              <th scope="row" ><%= "名前" %></th>
               <td><%= current_user.name %></td>
             </tr>
             <tr>
