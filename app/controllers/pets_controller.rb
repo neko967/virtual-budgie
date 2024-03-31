@@ -39,6 +39,6 @@ class PetsController < ApplicationController
   end
 
   def pet_params
-    params.require(:pet).permit(:name).merge(bird_id: params[:bird_id])
+    params.permit(:name).merge(bird_id: params[:bird_id])
   end
 end
