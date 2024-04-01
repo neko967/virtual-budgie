@@ -9,9 +9,6 @@
             <%= render 'favorite_button', { pet: @pet } %>
             <div><%= link_to "戻る", root_path, class: "btn btn-primary" %></div>
             <div><button data-action="click->bird-speak#birdSpeak" data-bird-speak-target="birdSpeakBtn" class="btn btn-primary">聞いてみる（テキスト）</button></div>
-            <% if user_signed_in? && current_user.own?(@pet) %>
-              <div><%= link_to "お別れをする", pet_path(@pet), data: { turbo_method: :delete, turbo_confirm: "本当にお別れしますか？" }, class: "btn btn-secondary" %></div>
-            <% end %>
           </div>
           <div class="col-span-9">
             <%= image_tag @pet.bird.bird_image_url %>

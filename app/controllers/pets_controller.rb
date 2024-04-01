@@ -17,7 +17,10 @@ class PetsController < ApplicationController
 
   def destroy
     @pet.destroy!
-    redirect_to mypage_path, success: 'ペットとお別れしました。'
+
+    respond_to do |format|
+      format.turbo_stream
+    end
   end
 
   def speak
