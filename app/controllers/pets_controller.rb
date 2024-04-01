@@ -1,11 +1,6 @@
 class PetsController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create destroy]
+  before_action :authenticate_user!, only: %i[create destroy]
   before_action :set_pet, only: %i[destroy]
-
-  def new
-    @bird = Bird.find(params[:bird_id])
-    @pet = Pet.new
-  end
 
   def show
     @pet = Pet.find(params[:id])
@@ -16,8 +11,7 @@ class PetsController < ApplicationController
     if @pet.save
       redirect_to mypage_path
     else
-      @bird = Bird.find(params[:bird_id])
-      render :new
+      redirect_to birds_path
     end
   end
 
