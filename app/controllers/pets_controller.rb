@@ -1,11 +1,6 @@
 class PetsController < ApplicationController
-  before_action :authenticate_user!, only: %i[new create destroy]
+  before_action :authenticate_user!, only: %i[create destroy]
   before_action :set_pet, only: %i[destroy]
-
-  def new
-    @bird = Bird.find(params[:bird_id])
-    @pet = Pet.new
-  end
 
   def show
     @pet = Pet.find(params[:id])
@@ -14,16 +9,18 @@ class PetsController < ApplicationController
   def create
     @pet = current_user.pets.build(pet_params)
     if @pet.save
-      redirect_to mypage_path
+      redirect_to mypage_path, success: '新しいペットをお迎えしました！'
     else
-      @bird = Bird.find(params[:bird_id])
-      render :new
+      redirect_to birds_path, danger: 'ペットをお迎えに失敗しました。'
     end
   end
 
   def destroy
     @pet.destroy!
-    redirect_to mypage_path
+
+    respond_to do |format|
+      format.turbo_stream
+    end
   end
 
   def speak

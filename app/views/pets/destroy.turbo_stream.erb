@@ -1,0 +1,6 @@
+<%= turbo_stream.remove "pet_#{@pet.id}" %>
+<%= turbo_stream.remove "pet_#{@pet.id}" %>
+
+<%= turbo_stream.replace "show_pet_area" do %>
+  <%= turbo_frame_tag "show_pet_area" %>
+<% end %>
