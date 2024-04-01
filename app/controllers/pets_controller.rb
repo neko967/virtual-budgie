@@ -9,15 +9,15 @@ class PetsController < ApplicationController
   def create
     @pet = current_user.pets.build(pet_params)
     if @pet.save
-      redirect_to mypage_path
+      redirect_to mypage_path, success: '新しいペットをお迎えしました！'
     else
-      redirect_to birds_path
+      redirect_to birds_path, danger: 'ペットをお迎えに失敗しました。'
     end
   end
 
   def destroy
     @pet.destroy!
-    redirect_to mypage_path
+    redirect_to mypage_path, success: 'ペットとお別れしました。'
   end
 
   def speak
