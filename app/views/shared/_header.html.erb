@@ -19,9 +19,9 @@
             <li>
               <div class="dropdown dropdown-end">
                 <i tabindex="0" role="button" class="fas fa-user-circle fa-xl text-blue-500"></i>
-                <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 mt-32">
-                  <li><%= link_to "プロフィール", profile_path %></li>
-                  <li><%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete } %></li>
+                <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 mt-32 bg-gray-800">
+                  <li><%= link_to "プロフィール", profile_path, class: "text-gray-200" %></li>
+                  <li><%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete }, class: "text-gray-200" %></li>
                 </ul>
               </div>
             </li>
