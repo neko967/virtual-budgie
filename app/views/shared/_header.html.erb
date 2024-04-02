@@ -15,10 +15,16 @@
           <li><%= link_to "交流スペース（工事中）" %></li>
           <li><%= link_to "インコをお迎えする", birds_path %></li>
           <% if user_signed_in? %>
-            <li><%= link_to "マイページ", mypage_path, data: { turbo: false } %></li>
-          <% end %>
-          <% if user_signed_in? %>
-            <li><%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete } %></li>
+            <li><%= link_to "MYインコ", mypage_path, data: { turbo: false } %></li>
+            <li>
+              <div class="dropdown dropdown-end">
+                <i tabindex="0" role="button" class="fas fa-user-circle fa-xl text-blue-500"></i>
+                <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 mt-32">
+                  <li><%= link_to "プロフィール", profile_path %></li>
+                  <li><%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete } %></li>
+                </ul>
+              </div>
+            </li>
           <% else %>
             <li><%= link_to "ログイン", new_user_session_path %></li>
           <% end %>
@@ -33,9 +39,8 @@
       <li><%= link_to "交流スペース", rooms_path %></li>
       <li><%= link_to "インコをお迎えする", birds_path %></li>
       <% if user_signed_in? %>
-        <li><%= link_to "マイページ", mypage_path %></li>
-      <% end %>
-      <% if user_signed_in? %>
+        <li><%= link_to "MYインコ", mypage_path %></li>
+        <li><%= link_to "プロフィール", profile_path %></li>
         <li><%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete } %></li>
       <% else %>
         <li><%= link_to "ログイン", new_user_session_path %></li>
