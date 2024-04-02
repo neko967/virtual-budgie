@@ -6,7 +6,16 @@
           <div class="col-span-3">
             <h2 class="card-title text-gray-300"><%= pet.name %></h2>
             <h2 class="card-title text-gray-300"><%= "飼い主: #{pet.user.name}" %></h2>
-            <%= render 'pets/favorite_button', { pet: pet } %>
+            <div class="flex flex-float h-14">
+              <div class="p-2">
+                <%= render 'pets/favorite_button', { pet: pet } %>
+              </div>
+              <div class="p-0.5">
+                <%= link_to "https://twitter.com/share?url=#{ENV.fetch('APP_URL')}/pets/#{pet.id}&text=ウチの#{pet.name}を見て！%0a%0a", target: '_blank' do %>
+                  <div class="btn text-gray-400">Xでシェア</div>
+                <% end %>
+              </div>
+            </div>
             <button data-action="click->bird-speak#birdSpeak" data-bird-speak-target="birdSpeakBtn" class="btn btn-primary text-gray-100">聞いてみる（テキスト）</button>
             <% if user_signed_in? && current_user.own?(pet) %>
               <div>
