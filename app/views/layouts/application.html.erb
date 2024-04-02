@@ -21,16 +21,6 @@
 
   <body class="flex flex-col min-h-screen">
     <%= render "shared/header" %>
-    <% if flash[:notice] %>
-      <div class="p-4 mb-4 text-md text-gray-100 text-center font-bold bg-green-800">
-        <%= notice %>
-      </div>
-    <% end %>
-    <% if flash[:alert] %>
-      <div class="p-4 mb-4 text-md text-gray-100 text-center font-bold bg-red-800">
-        <%= alert %>
-      </div>
-    <% end %>
     <%= render 'shared/flash_message' %>
     <%= yield %>
 
