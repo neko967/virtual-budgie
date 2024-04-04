@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root to: "staticpages#top"
+  get '/privacy', to: 'staticpages#privacy'
   devise_for :users
   post '/guest_login', to: 'guest_users#create'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
