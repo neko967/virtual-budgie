@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/privacy', to: 'staticpages#privacy'
   devise_for :users
   post '/guest_login', to: 'guest_users#create'
+  delete 'guest_logout', to: 'guest_users#destroy'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
