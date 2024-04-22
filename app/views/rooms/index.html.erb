@@ -1,7 +1,9 @@
-<div class="container mx-auto sm:w-11/12 lg:w-11/12">
-  <div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-    <% @rooms.each do |room| %>
-      <%= render 'room', { room: room } %>
-    <% end %>
+<div class="bg-base-300 min-h-screen">
+  <div class="container mx-auto sm:w-11/12 lg:w-11/12">
+    <div class="grid sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 mt-3 mb-3">
+      <% @rooms.each do |room| %>
+        <%= render 'room', { room: room } %>
+      <% end %>
+    </div>
   </div>
 </div>
