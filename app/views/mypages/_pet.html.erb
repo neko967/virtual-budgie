@@ -4,22 +4,22 @@
       <div class="container mx-auto md:w-12/12 lg:w-10/12 p-10">
         <div class="grid grid-cols-12 gap-3">
           <div class="col-span-3">
-            <h2 class="card-title text-gray-300"><%= pet.name %></h2>
-            <h2 class="card-title text-gray-300"><%= "飼い主: #{pet.user.name}" %></h2>
+            <h2 class="card-title"><%= pet.name %></h2>
+            <h2 class="card-title"><%= "飼い主: #{pet.user.name}" %></h2>
             <div class="flex flex-float h-14">
               <div class="p-2">
                 <%= render 'pets/favorite_button', { pet: pet } %>
               </div>
               <div class="p-0.5">
                 <%= link_to "https://twitter.com/share?url=#{ENV.fetch('APP_URL')}/pets/#{pet.id}&text=ウチの#{pet.name}を見て！%0a%0a", target: '_blank' do %>
-                  <div class="btn text-gray-400">Xでシェア</div>
+                  <div class="btn btn-accent">Xでシェア</div>
                 <% end %>
               </div>
             </div>
-            <button data-action="click->bird-speak#birdSpeak" data-bird-speak-target="birdSpeakBtn" class="btn btn-primary text-gray-100">聞いてみる（テキスト）</button>
+            <button data-action="click->bird-speak#birdSpeak" data-bird-speak-target="birdSpeakBtn" class="btn btn-primary">聞いてみる（テキスト）</button>
             <% if user_signed_in? && current_user.own?(pet) %>
               <div>
-                <%= link_to "お別れをする", pet_path(pet), data: { turbo_method: :delete, turbo_confirm: "本当にお別れしますか？" }, class: "btn btn-secondary text-gray-100" %>
+                <%= link_to "お別れをする", pet_path(pet), data: { turbo_method: :delete, turbo_confirm: "本当にお別れしますか？" }, class: "btn btn-secondary" %>
               </div>
             <% end %>
           </div>
@@ -28,18 +28,18 @@
           </div>
           <div class="col-span-3">
             <% if user_signed_in? && current_user.own?(pet) %>
-              <button data-action="click->talk-to-bird#startStop" data-talk-to-bird-target="startStopBtn" class="btn btn-primary text-gray-100">話しかける</button>
+              <button data-action="click->talk-to-bird#startStop" data-talk-to-bird-target="startStopBtn" class="btn btn-primary">話しかける</button>
             <% end %>
           </div>
           <div class="col-span-9">
             <div class="grid grid-cols-12 gap-3">
-              <div class="col-span-9 text-gray-300">
+              <div class="col-span-9">
                 <div data-talk-to-bird-target="transcript"></div>
                 <div data-bird-speak-target="birdsaid"></div>
               </div>
               <div class="col-span-3">
                 <% if user_signed_in? && current_user.own?(pet) %>
-                  <button data-action="click->talk-to-bird#reset" data-talk-to-bird-target="resetBtn" class="btn btn-primary float-right text-gray-100">話しかけるのを中断する</button>
+                  <button data-action="click->talk-to-bird#reset" data-talk-to-bird-target="resetBtn" class="btn btn-primary float-right">話しかけるのを中断する</button>
                 <% end %>
               </div>
             </div>

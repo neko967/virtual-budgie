@@ -1,8 +1,8 @@
-<div class="bg-gray-800 h-screen">
+<div class="bg-base-300 h-screen">
   <div class="container mx-auto sm:w-11/12 lg:w-11/12">
     <div class="grid grid-cols-12 gap-3">
       <div class="col-span-3">
-        <h1 class="mt-10 mb-5 text-gray-300"><%= "飼っているインコ" %></h1>
+        <h1 class="mt-10 mb-5"><%= "飼っているインコ" %></h1>
         <% if @my_pets.exists? %>
           <% @my_pets.each do |pet| %>
             <%= render 'my_pet_list', { pet: pet } %>
@@ -11,7 +11,7 @@
           <div class="text-gray-400">まだインコを飼っていません。</div>
           <%= link_to "インコを飼いに行く", birds_path, class: "btn btn-primary text-gray-100" %>
         <% end %>
-        <h1 class="mt-10 mb-5 text-gray-300"><%= "お気に入りのインコ" %></h1>
+        <h1 class="mt-10 mb-5"><%= "お気に入りのインコ" %></h1>
         <% if @favorite_pets.exists? %>
           <% @favorite_pets.each do |pet| %>
             <%= render 'fav_pet_list', { pet: pet } %>
