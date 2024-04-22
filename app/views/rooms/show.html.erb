@@ -1,32 +1,33 @@
-<div class="container mx-auto sm:w-11/12 lg:w-11/12">
-  <div class="grid grid-cols-12 gap-3">
-
-    <div class="col-span-3 ">
-      <% if user_signed_in? %>
-        <% current_user.pets.each do |pet| %>
-          <%= render 'pet', { pet: pet, room: @room} %>
-        <% end %>
-      <% end %>
-    </div>
+<div class="bg-base-300 min-h-screen">
+  <div class="container mx-auto sm:w-11/12 lg:w-11/12">
+    <div class="grid grid-cols-12 gap-3 mt-3">
   
-    <div class="col-span-9 ">
-      <div class="bg-white">
-        <% @pet_chats_in_room.each do |pet_chat_in_room| %>
-          <div class=" mb-4 max-w-xs md:max-w-md lg:max-w-lg xl:max-w-xl">
-            <div class="inline-block py-2 px-4 shadow rounded-lg">
-              <%= pet_chat_in_room.chat %>
+      <div class="col-span-3 ">
+        <% if user_signed_in? %>
+          <% current_user.pets.each do |pet| %>
+            <%= render 'pet', { pet: pet, room: @room} %>
+          <% end %>
+        <% end %>
+      </div>
+    
+      <div class="col-span-9 ">
+        <div class="bg-white">
+          <% @pet_chats_in_room.each do |pet_chat_in_room| %>
+            <div class=" mb-4 max-w-xs md:max-w-md lg:max-w-lg xl:max-w-xl">
+              <div class="inline-block py-2 px-4 shadow rounded-lg">
+                <%= pet_chat_in_room.chat %>
+              </div>
             </div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
+  
+        <div class="grid grid-cols-6" id="pets_in_room">
+          <% @pets_in_room.each do |pet_in_room| %>
+            <%= render 'pet_in_room', { pet: pet_in_room.pet, room: @room} %>
+          <% end %>
+        </div>
       </div>
-
-      <div class="grid grid-cols-6" id="pets_in_room">
-        <% @pets_in_room.each do |pet_in_room| %>
-          <%= render 'pet_in_room', { pet: pet_in_room.pet, room: @room} %>
-        <% end %>
-      </div>
+  
     </div>
-
   </div>
 </div>
-  
