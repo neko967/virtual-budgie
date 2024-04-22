@@ -1,11 +1,11 @@
 <div data-controller="talk-to-bird" data-talk-to-bird-pet-id="<%= @pet.id %>">
   <div data-controller="bird-speak" data-bird-speak-pet-id="<%= @pet.id %>">
-    <div class="bg-gray-800 h-screen">
+    <div class="bg-base-300 h-screen">
       <div class="container mx-auto md:w-12/12 lg:w-10/12 pt-10">
         <div class="grid grid-cols-12 gap-3">
           <div class="col-span-3">
-            <h2 class="card-title text-gray-300"><%= @pet.name %></h2>
-            <h2 class="card-title text-gray-300"><%= "飼い主: #{@pet.user.name}" %></h2>
+            <h2 class="card-title"><%= @pet.name %></h2>
+            <h2 class="card-title"><%= "飼い主: #{@pet.user.name}" %></h2>
             <%= render 'favorite_button', { pet: @pet } %>
             <div><%= link_to "戻る", root_path, class: "btn btn-primary" %></div>
             <div><button data-action="click->bird-speak#birdSpeak" data-bird-speak-target="birdSpeakBtn" class="btn btn-primary">聞いてみる（テキスト）</button></div>
@@ -20,7 +20,7 @@
           </div>
           <div class="col-span-9">
             <div data-talk-to-bird-target="transcript"></div>
-            <div data-bird-speak-target="birdsaid" class="text-white"></div>
+            <div data-bird-speak-target="birdsaid"></div>
             <% if user_signed_in? && current_user.own?(@pet) %>
               <button data-action="click->talk-to-bird#reset" data-talk-to-bird-target="resetBtn" class="btn btn-primary float-right">話しかけるのを中断する</button>
             <% end %>
