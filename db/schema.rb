@@ -10,8 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_21_030001) do
-  create_table "birds", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+ActiveRecord::Schema[7.1].define(version: 2024_04_22_175654) do
+  create_table "birds", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
     t.integer "bird_type", null: false
     t.text "description", null: false
     t.string "bird_image"
@@ -19,7 +19,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_030001) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "favorites", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "favorites", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "pet_id", null: false
     t.datetime "created_at", null: false
@@ -29,7 +29,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_030001) do
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
-  create_table "pet_chat_in_rooms", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "pet_chat_in_rooms", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
     t.string "chat", null: false
     t.bigint "room_id", null: false
     t.bigint "pet_id", null: false
@@ -39,17 +39,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_030001) do
     t.index ["room_id"], name: "index_pet_chat_in_rooms_on_room_id"
   end
 
-  create_table "pet_in_rooms", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "pet_in_rooms", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
     t.bigint "pet_id", null: false
     t.bigint "room_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "place", null: false
     t.index ["pet_id", "room_id"], name: "index_pet_in_rooms_on_pet_id_and_room_id", unique: true
     t.index ["pet_id"], name: "index_pet_in_rooms_on_pet_id"
     t.index ["room_id"], name: "index_pet_in_rooms_on_room_id"
   end
 
-  create_table "pets", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "pets", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
     t.string "name", null: false
     t.integer "level", default: 1, null: false
     t.integer "experience_point", default: 0, null: false
@@ -63,7 +64,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_030001) do
     t.index ["user_id"], name: "index_pets_on_user_id"
   end
 
-  create_table "rooms", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "rooms", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
     t.string "name", null: false
     t.integer "entry_limit", default: 6, null: false
     t.string "room_image"
@@ -71,7 +72,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_030001) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -87,7 +88,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_21_030001) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "vocabs", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "vocabs", charset: "utf8mb4", collation: "utf8mb4_bin", force: :cascade do |t|
     t.string "word", null: false
     t.string "pos", null: false
     t.integer "frequency", default: 0, null: false

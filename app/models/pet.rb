@@ -8,8 +8,8 @@ class Pet < ApplicationRecord
 
   validates :name, length: { maximum: 255 }, presence: true
 
-  def enter(room)
-    pet_in_rooms.create(room_id: room.id)
+  def enter(room, place)
+    pet_in_rooms.create(room_id: room.id, place: place)
   end
 
   def exit(room)

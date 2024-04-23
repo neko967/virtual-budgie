@@ -1,10 +1,9 @@
 <%= turbo_frame_tag dom_id(pet) do %>
-  <div class="col-span-1">
-    <div class="w-54 h-20 bg-red-100 hover:bg-red-200 text-black">
-      <div class="flex grid grid-cols-12">
-        <figure class="col-span-4"><%= image_tag pet.bird.bird_image_url, size: '90x60' %></figure>
-        <h2 class="col-span-7 mt-3"><%= pet.name %></h2>
-      </div>
+  <div data-controller="bird-speak" data-bird-speak-pet-id="<%= pet.id %>">
+    <div class="w-72 h-36 text-white">
+      <h2 class="ml-12"><%= pet.name %></h2>
+      <figure><%= image_tag pet.bird.bird_image_url, size: '100x70' %></figure>
+      <div data-bird-speak-target="birdsaid"></div>
     </div>
   </div>
 <% end %>

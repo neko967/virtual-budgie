@@ -16,7 +16,6 @@
                 <% end %>
               </div>
             </div>
-            <button data-action="click->bird-speak#birdSpeak" data-bird-speak-target="birdSpeakBtn" class="btn btn-primary">聞いてみる（テキスト）</button>
             <% if user_signed_in? && current_user.own?(pet) %>
               <div>
                 <%= link_to "お別れをする", pet_path(pet), data: { turbo_method: :delete, turbo_confirm: "本当にお別れしますか？" }, class: "btn btn-secondary" %>

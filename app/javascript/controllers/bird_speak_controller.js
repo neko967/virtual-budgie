@@ -3,8 +3,24 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   static targets = ["birdsaid"]
+  static values = { intervalId: Number }
 
-  birdSpeak() {
+  connect() {
+    this.speakEveryTenSeconds();
+  }
+
+  disconnect() {
+    clearInterval(this.intervalIdValue);
+  }
+
+  speakEveryTenSeconds() {
+    this.speak(); // Speak once immediately upon loading
+    this.intervalIdValue = setInterval(() => {
+      this.speak();
+    }, 3000); // 3000 milliseconds = 3 seconds
+  }
+
+  speak() {
     const petId = this.data.get("pet-id");
 
     fetch(`/pets/${petId}/speak`)
@@ -13,7 +29,7 @@ export default class extends Controller {
         if (data.vocabs.length > 0) {
           this.displayRandomPhrase(data.vocabs);
         } else {
-          this.birdsaidTarget.textContent = "言葉を覚えていません";
+          this.birdsaidTarget.textContent = "ピヨピヨ";
         }
       })
       .catch(error => console.error('Error:', error));
