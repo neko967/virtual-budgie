@@ -1,32 +1,47 @@
-<div class="container mx-auto sm:w-11/12 lg:w-11/12">
-  <div class="grid grid-cols-12 gap-3">
+<div class="bg-base-300 min-h-screen">
+  <div class="container mx-auto sm:w-11/12 lg:w-11/12">
+    <div class="grid grid-cols-12 gap-3 mt-3 min-h-screen">
 
-    <div class="col-span-3 ">
-      <% if user_signed_in? %>
-        <% current_user.pets.each do |pet| %>
-          <%= render 'pet', { pet: pet, room: @room} %>
+      <div class="col-span-3">
+        <% if user_signed_in? %>
+          <% current_user.pets.each do |pet| %>
+            <%= render 'pet', { pet: pet, room: @room} %>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
-  
-    <div class="col-span-9 ">
-      <div class="bg-white">
-        <% @pet_chats_in_room.each do |pet_chat_in_room| %>
-          <div class=" mb-4 max-w-xs md:max-w-md lg:max-w-lg xl:max-w-xl">
-            <div class="inline-block py-2 px-4 shadow rounded-lg">
-              <%= pet_chat_in_room.chat %>
-            </div>
+      </div>
+
+      <div class="col-span-9 relative">
+        <div class="absolute">
+          <div id="steady-pets-in-room-1">
+            <%= render 'pet_in_room', { pet: @pets_in_room.find_by(place: 1).pet, room: @room } if @places.include?(1) %>
           </div>
-        <% end %>
-      </div>
-
-      <div class="grid grid-cols-6" id="pets_in_room">
-        <% @pets_in_room.each do |pet_in_room| %>
-          <%= render 'pet_in_room', { pet: pet_in_room.pet, room: @room} %>
-        <% end %>
+        </div>
+        <div class="absolute mt-32">
+          <div id="steady-pets-in-room-2">
+            <%= render 'pet_in_room', { pet: @pets_in_room.find_by(place: 2).pet, room: @room } if @places.include?(2) %>
+          </div>
+        </div>
+        <div class="absolute mt-64">
+          <div id="steady-pets-in-room-3">
+            <%= render 'pet_in_room', { pet: @pets_in_room.find_by(place: 3).pet, room: @room } if @places.include?(3) %>
+          </div>
+        </div>
+        <div class="absolute mt-96">
+          <div id="steady-pets-in-room-4">
+            <%= render 'pet_in_room', { pet: @pets_in_room.find_by(place: 4).pet, room: @room } if @places.include?(4) %>
+          </div>
+        </div>
+        <div class="absolute mt-32 ml-72">
+          <div id="steady-pets-in-room-5">
+            <%= render 'pet_in_room', { pet: @pets_in_room.find_by(place: 5).pet, room: @room } if @places.include?(5) %>
+          </div>
+        </div>
+        <div class="absolute mt-96 ml-72">
+          <div id="steady-pets-in-room-6">
+            <%= render 'pet_in_room', { pet: @pets_in_room.find_by(place: 6).pet, room: @room } if @places.include?(6) %>
+          </div>
+        </div>
       </div>
     </div>
-
   </div>
 </div>
-  

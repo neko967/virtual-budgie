@@ -2,6 +2,6 @@
   <%= render 'rooms/exit', { pet: @pet, room: @room } %>
 <% end %>
 
-<%= turbo_stream.append "pets_in_room" do %>
+<%= turbo_stream.append "steady-pets-in-room-#{@place}" do %>
   <%= render 'rooms/pet_in_room', { pet: @pet, room: @room} %>
 <% end %>
