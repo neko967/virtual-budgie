@@ -1,7 +1,5 @@
-# AIbudgie
-
 # [サービス名]
-おしゃべりインコ
+### [おしゃべりインコ](https://aibudgie.onrender.com/)
 
 ## サービス概要
 おしゃべりインコは、自分が登録したインコに言葉を覚えさせ、
@@ -31,8 +29,6 @@ SNSを通じて交流を増やしたいと思っている一方で、
 * どのようなサービスにしていきたいか
 コミュニティの交流がより活発になるサービスを目指したいです。
 
-* どこが売りになるか、差別化ポイントになるか
-
 ## 実装を予定している機能
 ### MVP
 * 会員登録
@@ -54,4 +50,4 @@ SNSを通じて交流を増やしたいと思っている一方で、
 https://www.figma.com/file/X7iTzf1MaKBY6D5Pt2occI/%E3%81%8A%E3%81%97%E3%82%83%E3%81%B9%E3%82%8AAI%E3%82%A4%E3%83%B3%E3%82%B3?type=design&node-id=0%3A1&mode=design&t=HrNt9My2WN4PoWMV-1
 
 ### ER図
-https://gyazo.com/1e85078400f122a9ac9addce2943df56
+[![Image from Gyazo](https://i.gyazo.com/1e85078400f122a9ac9addce2943df56.jpg)](https://gyazo.com/1e85078400f122a9ac9addce2943df56)
